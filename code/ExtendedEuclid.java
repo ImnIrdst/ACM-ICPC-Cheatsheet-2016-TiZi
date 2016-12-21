@@ -1,8 +1,5 @@
 import java.util.Scanner;
 
-/**
- * Created by iman on 11/26/16.
- */
 public class Main {
     public static class ExtendedEuclid {
         public static int x0;

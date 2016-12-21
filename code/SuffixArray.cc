@@ -1,9 +1,7 @@
 // Suffix array construction in O(L log^2 L) time.  Routine for
 // computing the length of the longest common prefix of any two
 // suffixes in O(log L) time.
-//
 // INPUT:   string s
-//
 // OUTPUT:  array suffix[] such that suffix[i] = index (from 0 to L-1)
 //          of substring s[i...L-1] in the list of sorted suffixes.
 //          That is, if we take the inverse of the permutation suffix[],

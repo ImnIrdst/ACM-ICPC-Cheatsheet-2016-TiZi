@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import subprocess
 code_dir = "code"
-title = "Stanford ACM-ICPC Team Notebook"
+title = "TiZi ACM-ICPC Notebook"
 
 def get_sections():
     sections = []
@@ -52,6 +52,7 @@ def get_tex(sections):
             tex += '\\subsection{%s}\n' % texify(subsection_name)
             tex += '\\raggedbottom\\lstinputlisting[style=%s]{%s/%s}\n' % (get_style(filename), code_dir, filename)
             tex += '\\hrulefill\n'
+            print 'imn: ', subsection_name, get_style(filename)
         tex += '\n'
     return tex
 

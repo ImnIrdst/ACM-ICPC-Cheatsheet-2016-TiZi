@@ -48,8 +48,8 @@ int main(){
 				int size = dfsRev(u, color); // SCC Size
 				if (size > 1){
 					for (int v = 0; v < n; v++){
-						if (col[v] == color) //inSame SCC;
-							;
+						if (col[v] == color); //inSame SCC;
+							
 					}
 				}
 				color++;

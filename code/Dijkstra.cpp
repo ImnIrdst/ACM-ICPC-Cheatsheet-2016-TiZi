@@ -6,8 +6,6 @@ using namespace std;
 
 const int INF = 1e8;
 
-
-
 struct ToNode{
 	int v, w;
 	ToNode(int v, int w)

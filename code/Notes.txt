@@ -1,0 +1,19 @@
+/* ------ Bitmask
+
+bit&(1<<i) // bit i is 0 or 1
+(bit>>j)&1// bit i is 0 or 1 // use this & multiplication to avoid TLE 
+bit|(1<<i) // set bit i to 1
+bit^(1<<i) // toggle bit i
+x & ( x – 1) // check if x is a power of 2
+string stmp; bitset<12> tmp; //Debuging
+tmp=bit; stmp=tmp.to_string();
+
+/* ------ Data Structure Ideas
+-Hash Table + Lookup
+- Sparse Table
+- SQRT Decomposition
+- Bucketing
+- Interger Arrays as matrices
+- Recursive Tree Building
+- Shortest Cycles
+- Problem DAG

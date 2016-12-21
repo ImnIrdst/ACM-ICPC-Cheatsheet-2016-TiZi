@@ -6,12 +6,8 @@
 // Running time, O(|V|^2) cost per augmentation
 //     max flow:           O(|V|^3) augmentations
 //     min cost max flow:  O(|V|^4 * MAX_EDGE_COST) augmentations
-//     
 // INPUT: 
-//     - graph, constructed using AddEdge()
-//     - source
-//     - sink
-//
+//     - graph, constructed using AddEdge(), source, sink
 // OUTPUT:
 //     - (maximum flow value, minimum cost value)
 //     - To obtain the actual flow, look at positive values only.

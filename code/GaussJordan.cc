@@ -1,15 +1,11 @@
 // Gauss-Jordan elimination with full pivoting.
-//
 // Uses:
 //   (1) solving systems of linear equations (AX=B)
 //   (2) inverting matrices (AX=I)
 //   (3) computing determinants of square matrices
-//
 // Running time: O(n^3)
-//
 // INPUT:    a[][] = an nxn matrix
 //           b[][] = an nxm matrix
-//
 // OUTPUT:   X      = an nxm matrix (stored in b[][])
 //           A^{-1} = an nxn matrix (stored in a[][])
 //           returns determinant of a[][]

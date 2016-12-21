@@ -1,13 +1,8 @@
 // Adjacency matrix implementation of Stoer-Wagner min cut algorithm.
 //
-// Running time:
-//     O(|V|^3)
-//
-// INPUT: 
-//     - graph, constructed using AddEdge()
-//
-// OUTPUT:
-//     - (min cut value, nodes in half of min cut)
+// Running time: O(|V|^3)
+// INPUT: graph, constructed using AddEdge()
+// OUTPUT: (min cut value, nodes in half of min cut)
 
 #include <cmath>
 #include <vector>

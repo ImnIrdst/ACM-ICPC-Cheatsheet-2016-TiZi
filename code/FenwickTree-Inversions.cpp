@@ -1,3 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cstdio>
+
+using namespace std;
+
+typedef long long int64;
+typedef vector<int64> vi;
+
 // vector (vi), iostream, algo, 
 #define LSOne(i) (i & (-i))
 struct FenwickTree {
@@ -16,6 +26,22 @@ struct FenwickTree {
 	}
 };
 
+int main() {
+	int f[] = { 2,4,5,5,6,6,6,7,7,8,9 }; // m = 11 scores
+	FenwickTree ft(10); // declare a Fenwick Tree for range [1..10]
+						// insert these scores manually one by one into an empty Fenwick Tree
+	for (int i = 0; i < 11; i++) ft.update(f[i], 1); // this is O(k log n)
+	printf("%d\n", ft.rsq(1, 1)); // 0 => ft[1] = 0
+	printf("%d\n", ft.rsq(1, 2)); // 1 => ft[2] = 1
+	printf("%d\n", ft.rsq(1, 6)); // 7 => ft[6] + ft[4] = 5 + 2 = 7
+	printf("%d\n", ft.rsq(1, 10)); // 11 => ft[10] + ft[8] = 1 + 10 = 11
+	printf("%d\n", ft.rsq(3, 6)); // 6 => rsq(1, 6) - rsq(1, 2) = 7 - 1
+	ft.update(5, 2); // update demo
+	printf("%d\n", ft.rsq(1, 10)); // now 13
+} // return 0;
+
+/* extera
+
 // get largest value with cumulative sum less than or equal to x;
 // for smallest, pass x-1 and add 1 to result
 int getind(int x) {// ***Change Needed***
@@ -26,9 +52,11 @@ int getind(int x) {// ***Change Needed***
     mask >>= 1;
   }
   return idx;
-}
+} 
 
+// how to count inversions
 int main(){
+	vi a;
 	while(cin >> n){ // count inversions, (Change Needed)
 		a.assign(n,0); b.assign(n,0); tree.assign(n,0);
 		for(int i=0 ; i<n; i++){
@@ -47,3 +75,5 @@ int main(){
 		cout << invs << endl;
 	}
 }
+
+*/
