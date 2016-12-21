@@ -1,6 +1,27 @@
-// Doesn't run properly
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <map>
 
-vvi adjOrg, adjRev;  vi vis, ord, col;
+using namespace std;
+
+typedef vector<int> vi;
+typedef vector<vi > vvi;
+
+
+map<string, int> mpsi;
+map<int, string> mpis;
+
+int mapId;
+int ID(string name){
+	if(mpsi.count(name)) return mpsi[name];
+	mpsi[name] = mapId;
+	mpis[mapId] = name;
+	return mapId++;
+}
+
+vvi adjOrg, adjRev;  vi vis, ord, col; int n, m;
 
 void dfsOrg(int u){
 	if (vis[u]) return; vis[u] = true;
@@ -21,18 +42,20 @@ int dfsRev(int u, int color){
 }
 
 int main(){
-	while (cin >> n && n){
-		int u, v; string line;
+	int cs = 1;
+	while (cin >> n >> m && (n+m)) {
+		mpsi.clear(); mpis.clear(); mapId = 0;
+
 		adjOrg.assign(n, vi());
 		adjRev.assign(n, vi());
 
-		for (int i = 0; i < n; i++){
-			stringstream sstr(line);
-			sstr >> u;
-			while (sstr >> v){
-				adjOrg[u].push_back(v);
-				adjRev[v].push_back(u);
-			}
+		for (int i=0 ; i<m ; i++){
+			string uname, vname;
+			cin >> uname >> vname;
+			int u = ID(uname);
+			int v = ID(vname);
+			adjOrg[u].push_back(v);
+			adjRev[v].push_back(u);
 		}
 
 		ord.clear();
@@ -40,21 +63,25 @@ int main(){
 		for (int u = 0; u < n; u++){
 			if (!vis[u]) dfsOrg(u);
 		}
+
 		int color = 1;
 		col.assign(n, 0);
 		while (!ord.empty()){
 			int u = ord.back();
 			if (!col[u]){
 				int size = dfsRev(u, color); // SCC Size
-				if (size > 1){
-					for (int v = 0; v < n; v++){
-						if (col[v] == color); //inSame SCC;
-							
-					}
-				}
 				color++;
 			}
 			ord.pop_back();
+		}
+		if (cs != 1) cout << endl;
+		cout << "Calling circles for data set " << cs++ << ":" << endl;
+		for (int c = 1; c<color ; c++) {
+			string ws = "";
+			for (int u=0 ; u<n ; u++) {
+				if(col[u] == c) cout << ws << mpis[u], ws=", ";
+			}
+			cout << endl;
 		}
 	}
 }

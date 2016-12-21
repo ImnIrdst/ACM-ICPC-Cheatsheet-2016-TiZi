@@ -20,6 +20,7 @@ DP-Classics.cpp	Classic DP problems
 ArticulationPoints-Bridges.cpp	Articulation Points, Bridges
 StronglyConnectedComponnent-Kosaraju.cpp	Strongly Connected Component, Kosaraju
 StronglyConnectedComponnent-Tarjan.cpp	Strongly Connected Component, Tarjan
+2SAT.cpp	2-Satisfiability (2SAT)
 Dijkstra.cpp	Shortest Path, Dijkstra
 LCATreeDist.cpp	LCA Tree Distance
 GraphicSequence.cpp	Graphic Sequence
@@ -48,6 +49,7 @@ SuffixArray.cc	Suffix Array 1
 SuffixArray2.cc	Suffix Array 2
 PrefixFunction.cpp	Prefix Function
 Infix2Postfix.java	Infix to Postfix
+KMP.java		Knuth-Morris-Pratt (KMP)
 SimpleParser.cpp	Simple Parser
 LongestPalindrom.cpp	Longest Palindrome
 
