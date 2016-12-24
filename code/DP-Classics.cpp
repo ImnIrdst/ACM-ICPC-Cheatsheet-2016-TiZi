@@ -1,8 +1,8 @@
 // ----- Maximum Subrectangle Sum
 int main(){
 	for(int i=1 ; i<n ; i++)//preprocess
-				for(int j=0 ; j<n ; j++)
-					a[i][j]+=a[i-1][j];
+		for(int j=0 ; j<n ; j++)
+			a[i][j]+=a[i-1][j];
 
 	int Max=0, ans=0;
 	for(int k=0 ; k<n ; k++){//calc
@@ -12,20 +12,16 @@ int main(){
 				else Max+=a[i+k][j]-a[i][j];
 				if(Max>ans) ans=Max;
 	} } }
-
 	//sub array, finsh and start point p=(val, startidx, finishidx)
 	p ans=p(-1,0,0); int sum=0,id=1;
 	for(int i=1 ; i<n ; i++){
-				if(sum<0){sum=0; id=i;}
-				sum+=a[i];
-				p tmp=p(sum,id,i+1); ans=Max(ans,tmp);	
+		if(sum<0){sum=0; id=i;}
+		sum+=a[i];
+		p tmp=p(sum,id,i+1); ans=Max(ans,tmp);	
 	}
 }
-
-
 // ----- Optimal Array Multiplication Sequence (Print Path)
 int n,a[10+5],p[10+5][10+5],dp[10+5][10+5];
-
 int solve(int L, int R){
 	if(L==R){ return 0; }
 	if(dp[L][R]!=-1) return dp[L][R];
@@ -43,7 +39,6 @@ void print(int L, int R){
 	cout << " x ";
 	print(p[L][R]+1,R); cout << ")";
 }
-
 int main(){	int t=1;
 	while(cin >> n && n){
 		for(int i=1 ; i<=n ; i++)cin >> a[i-1] >> a[i];
@@ -51,9 +46,7 @@ int main(){	int t=1;
 		solve(1,n);//cout << solve(1,n) << endl;
 		printf("Case %d: ",t++); print(1,n); printf("\n");
 	}
-	return 0;
 }
-
 // ----- LIS
 int main(){
 	vector<int> v;
@@ -76,10 +69,8 @@ int main(){
 	}}
 	cout << dp[n][n] << endl;
 }
-
 // ----- TSP
 p a[15]; int n, dp[15][1<<15];
-
 int solve(int pos, int bitset){
 	int& dpp=dp[pos][bitset]; //dpp = dp poniter
 	if(bitset==(1<<n)-1) return dist(a[pos],a[0]);
@@ -90,7 +81,6 @@ int solve(int pos, int bitset){
 	}
 	return dpp;
 }
-
 int main(){
 	int tc; cin >> tc;
 	while(tc--){

@@ -7,12 +7,7 @@
 //          That is, if we take the inverse of the permutation suffix[],
 //          we get the actual suffix array.
 
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
+// <vector><iostream><string>
 struct SuffixArray {
   const int L;
   string s;
@@ -32,26 +27,19 @@ struct SuffixArray {
   }
 
   vector<int> GetSuffixArray() { return P.back(); }
-
   // returns the length of the longest common prefix of s[i...L-1] and s[j...L-1]
   int LongestCommonPrefix(int i, int j) {
     int len = 0;
     if (i == j) return L - i;
     for (int k = P.size() - 1; k >= 0 && i < L && j < L; k--) {
       if (P[k][i] == P[k][j]) {
-	i += 1 << k;
-	j += 1 << k;
-	len += 1 << k;
+      	i += 1 << k; j += 1 << k; len += 1 << k;
       }
     }
     return len;
   }
 };
 
-// BEGIN CUT
-// The following code solves UVA problem 11512: GATTACA.
-#define TESTING
-#ifdef TESTING
 int main() {
   int T;
   cin >> T;
@@ -83,11 +71,7 @@ int main() {
     }
   }
 }
-
-#else
-// END CUT
 int main() {
-
   // bobocel is the 0'th suffix
   //  obocel is the 5'th suffix
   //   bocel is the 1'st suffix
@@ -104,6 +88,3 @@ int main() {
   cout << endl;
   cout << suffix.LongestCommonPrefix(0, 2) << endl;
 }
-// BEGIN CUT
-#endif
-// END CUT

@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class SegmentTree2D {
   public static int max(int[][] t, int x1, int y1, int x2, int y2) {
     int n = t.length >> 1;

@@ -1,5 +1,4 @@
 public class Kmp {
-
   public static int[] prefixFunction(String s) {
     int[] p = new int[s.length()];
     int k = 0;
@@ -12,7 +11,6 @@ public class Kmp {
     }
     return p;
   }
-
   public static int kmpMatcher(String s, String pattern) {
     int m = pattern.length();
     if (m == 0)
@@ -31,8 +29,6 @@ public class Kmp {
     return -1;
   }
 }
-
-
 // Competitive Programming KMP
 #define MAX_N 100010
 char T[MAX_N], P[MAX_N]; // T = text, P = pattern
@@ -47,7 +43,6 @@ void kmpPreprocess() {
     b[i] = j; // observe i = 8, 9, 10, 11, 12 with j = 0, 1, 2, 3, 4
   } 
 }
-
 // in the example of P = "SEVENTY SEVEN" above
 void kmpSearch() {
   // this is similar as kmpPreprocess(), but on string T

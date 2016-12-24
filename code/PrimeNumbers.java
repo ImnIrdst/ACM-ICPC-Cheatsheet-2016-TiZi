@@ -1,23 +1,13 @@
-package CheatSheet;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
-/**
- * Created by iman on 1/27/16.
- */
 public class PrimeNumbers {
 	public static class PrimeNumberUtils {
 		long MAX;
 		boolean[] isp;
 		ArrayList<Integer> primes;
-
 		public PrimeNumberUtils(long MAX) {
 			this.MAX = MAX;
 			this.isp = new boolean[(int)MAX];
 			this.primes = new ArrayList<Integer>();
 		}
-
 		public void genPrimes(){
 			Arrays.fill(isp, true);
 			isp[0] = isp[1] = false;
@@ -27,7 +17,6 @@ public class PrimeNumbers {
 				}
 			}
 		}
-
 		boolean isPrime(int n){
 			if(n < MAX) return isp[n];
 			for(int i=0 ; i<primes.size() && primes.get(i) * primes.get(i) <=n ; i++){
@@ -35,7 +24,6 @@ public class PrimeNumbers {
 			}
 			return true;
 		}
-
 		long divisors, coPrimes;
 		public ArrayList<Integer> factors, powers;
 		public void factorsUtils(int n){
@@ -59,9 +47,5 @@ public class PrimeNumbers {
 				coPrimes -= coPrimes / tmp; divisors *= (1 + 1);
 			}
 		}
-	}
-
-	public static void main(String[] args){
-
 	}
 }

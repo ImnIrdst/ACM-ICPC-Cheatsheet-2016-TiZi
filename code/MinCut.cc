@@ -1,20 +1,8 @@
 // Adjacency matrix implementation of Stoer-Wagner min cut algorithm.
-//
 // Running time: O(|V|^3)
 // INPUT: graph, constructed using AddEdge()
 // OUTPUT: (min cut value, nodes in half of min cut)
-
-#include <cmath>
-#include <vector>
-#include <iostream>
-
-using namespace std;
-
-typedef vector<int> VI;
-typedef vector<VI> VVI;
-
-const int INF = 1000000000;
-
+// <cmath><vector><iostream> VI VVI INF
 pair<int, VI> GetMinCut(VVI &weights) {
   int N = weights.size();
   VI used(N), cut, best_cut;
@@ -47,8 +35,6 @@ pair<int, VI> GetMinCut(VVI &weights) {
   }
   return make_pair(best_weight, best_cut);
 }
-
-// BEGIN CUT
 // The following code solves UVA problem #10989: Bomb, Divide and Conquer
 int main() {
   int N;
@@ -66,4 +52,3 @@ int main() {
     cout << "Case #" << i+1 << ": " << res.first << endl;
   }
 }
-// END CUT

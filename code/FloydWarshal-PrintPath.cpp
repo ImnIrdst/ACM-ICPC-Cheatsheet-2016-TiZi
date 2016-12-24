@@ -1,5 +1,4 @@
 #define MAX (100+10)
-
 int adj[MAX][MAX],path[MAX][MAX]; int n;
 
 void print(int i,int j){
@@ -8,7 +7,6 @@ void print(int i,int j){
 		print(path[i][j],j);
 	}
 }
-
 int main(){
 	int tc; cin >> tc;
 	while(tc--){
@@ -30,13 +28,10 @@ int main(){
 				}
 			}
 		}
-		int s,d;
-		cin >> s >> d;
+		int s,d; cin >> s >> d;
 		printf("%d euros\n",adj[s][d]);
-
 		//this prints the path even if source and distinaion are same
 		printf("%d",s); print(path[s][d],d); printf(" %d\n",d);
 		
 	}
-	return 0;
 }

@@ -1,14 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cstdio>
-
-using namespace std;
-
-typedef long long int64;
-typedef vector<int64> vi;
-
-// vector (vi), iostream, algo, 
+// <iostream><vector><algorithm><cstdio> int64, vi
 #define LSOne(i) (i & (-i))
 struct FenwickTree {
 	vi ft; FenwickTree() {}
@@ -40,7 +30,7 @@ int main() {
 	printf("%d\n", ft.rsq(1, 10)); // now 13
 } // return 0;
 
-/* extera
+/* ------------- extera */
 
 // get largest value with cumulative sum less than or equal to x;
 // for smallest, pass x-1 and add 1 to result
@@ -75,5 +65,3 @@ int main(){
 		cout << invs << endl;
 	}
 }
-
-*/

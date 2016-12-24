@@ -1,13 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <sstream>
-#include <string>
-
-using namespace std;
-
-typedef vector<int> vi;
-
+// <iostream> <vector> <algorithm> <sstream> <string> vi
 struct DisJointSet {
 	vi par, rnk, cnt; int numOfSets;
 
@@ -59,14 +50,6 @@ struct Kruskal {
 		}
 		return result;
 	}
-
-	void printSelectedEdges(){
-		cout << "MST edges:" << endl;
-		for(int i=0 ; i<marked.size() ; i++) {
-			Edge e = edges[marked[i]];
-			cout << e.toString() << endl;
-		}
-	} // remove
 };
 
 int main() {
@@ -88,22 +71,3 @@ int main() {
 	cout << kruskal.run() << endl;
 	kruskal.printSelectedEdges();
 }
-
-
-/*
-IN:
-5 6
-1 3 5
-4 5 0
-2 1 3
-3 2 1
-4 3 4
-4 2 2
-
-OUT:
-4,5,0
-3,2,1
-4,2,2
-2,1,3
-
-*/

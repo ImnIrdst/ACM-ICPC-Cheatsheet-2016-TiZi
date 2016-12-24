@@ -1,28 +1,5 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <vector>
-#include <map>
-
-using namespace std;
-
-typedef vector<int> vi;
-typedef vector<vi > vvi;
-
-
-map<string, int> mpsi;
-map<int, string> mpis;
-
-int mapId;
-int ID(string name){
-	if(mpsi.count(name)) return mpsi[name];
-	mpsi[name] = mapId;
-	mpis[mapId] = name;
-	return mapId++;
-}
-
+// <iostream><string><sstream><vector><map> vi vvi-
 vvi adjOrg, adjRev;  vi vis, ord, col; int n, m;
-
 void dfsOrg(int u){
 	if (vis[u]) return; vis[u] = true;
 	for (int i = 0; i < adjOrg[u].size(); i++){
@@ -50,11 +27,9 @@ int main(){
 		adjRev.assign(n, vi());
 
 		for (int i=0 ; i<m ; i++){
-			string uname, vname;
-			cin >> uname >> vname;
-			int u = ID(uname);
-			int v = ID(vname);
-			adjOrg[u].push_back(v);
+			string uname, vname; cin >> uname >> vname;
+			int u = ID(uname); int v = ID(vname);
+			adjOrg[u].push_back(v); 
 			adjRev[v].push_back(u);
 		}
 

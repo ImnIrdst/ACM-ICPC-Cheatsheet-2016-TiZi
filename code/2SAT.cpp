@@ -1,23 +1,12 @@
-#include <iostream>
-#include <cstdio>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
+// <iostream><cstdio><vector><algorithm> vi vvi
 #define FOR(i,x,y) for(int i = (x) ; i <= (y) ; ++i)
 #define SZ(x) ((int)(x).size())
 #define ALL(x) (x).begin(),(x).end()
 #define UNIQUE(V) (V).erase(unique((V).begin(),(V).end()),(V).end())
-
-typedef vector<int> vi;
-typedef vector<vi > vvi;
-
 struct Episode {
 	int s, e;
 	Episode(int s=0, int e=0): s(s), e(e) {}
 };
-
 #define SCCNODE 1000
 struct SCC{
     int num[SCCNODE], low[SCCNODE], col[SCCNODE], cycle[SCCNODE], st[SCCNODE];
@@ -149,7 +138,6 @@ struct SAT2 {
 
 } sat2;
 
-
 vector< Episode > ep;
 void build_graph(int l, int r){
 	for(int i=l ; i<=r ; i+=2) {
@@ -163,8 +151,6 @@ void build_graph(int l, int r){
 		}
 	}
 }
-
-
 int main () {
 	int tc;
 	cin >> tc;
@@ -172,30 +158,23 @@ int main () {
 		int n;
 		cin >> n;
 		n = n * 2;
-
 		ep.assign(n, Episode());
 		for(int i=0 ; i<n ; i++) cin >> ep[i].s >> ep[i].e;
-
 		int ansL = -1, ansR = -1, maxDist = -1;
 
 		int l = 0;
 		for (int r = 1 ; r<n ; r+=2) {
 			sat2.clear(n * 2);
 			build_graph(l, r);
-
 			while(sat2.possible(n * 2) == false) {
 				l+=2;
 				sat2.clear(n * 2);
 				build_graph(l, r);
 			}
-	
 			if (r - l > maxDist) {
-				ansR = r/2;
-				ansL = l/2;
-				maxDist = r - l;
+				ansR = r/2; ansL = l/2; maxDist = r - l;
 			}
 		}
-
 		cout << ansL + 1 << " " << ansR + 1 << endl;
 	}	
 }

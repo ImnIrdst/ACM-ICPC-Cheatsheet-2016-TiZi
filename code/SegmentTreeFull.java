@@ -1,18 +1,7 @@
-/******************************************************************************
- * Compilation:  javac SegmentTree.java
- * Execution:    java SegmentTree
- * <p/>
- * A segment tree data structure.
- ******************************************************************************/
-
-import java.util.Arrays;
-
 class SegmentTree {
-
     private Node[] heap;
     private int[] array;
     private int size;
-
     public SegmentTree(int[] array) {
         this.array = Arrays.copyOf(array, array.length);
         //The max size of this array is about 2 * 2 log2(n) + 1
@@ -21,10 +10,7 @@ class SegmentTree {
         build(1, 0, array.length);
     }
 
-
-    public int size() {
-        return array.length;
-    }
+    public int size() { return array.length; }
 
     //Initialize the Nodes of the Segment tree
     private void build(int v, int from, int size) {
@@ -47,21 +33,15 @@ class SegmentTree {
         }
     }
 
-    public int rsq(int from, int to) {
-        return rsq(1, from, to);
-    }
+    public int rsq(int from, int to) { return rsq(1, from, to); }
 
     private int rsq(int v, int from, int to) {
         Node n = heap[v];
-
         //If you did a range update that contained this node, you can infer the Sum without going down the tree
-        if (n.pendingVal != null && contains(n.from, n.to, from, to)) {
+        if (n.pendingVal != null && contains(n.from, n.to, from, to)) 
             return (to - from + 1) * n.pendingVal;
-        }
 
-        if (contains(from, to, n.from, n.to)) {
-            return heap[v].sum;
-        }
+        if (contains(from, to, n.from, n.to))  return heap[v].sum; 
 
         if (intersects(from, to, n.from, n.to)) {
             propagate(v);
@@ -74,22 +54,16 @@ class SegmentTree {
         return 0;
     }
 
-    public int rMinQ(int from, int to) {
-        return rMinQ(1, from, to);
-    }
+    public int rMinQ(int from, int to) { return rMinQ(1, from, to); }
 
     private int rMinQ(int v, int from, int to) {
         Node n = heap[v];
-
-
         //If you did a range update that contained this node, you can infer the Min value without going down the tree
         if (n.pendingVal != null && contains(n.from, n.to, from, to)) {
             return n.pendingVal;
         }
 
-        if (contains(from, to, n.from, n.to)) {
-            return heap[v].min;
-        }
+        if (contains(from, to, n.from, n.to))  return heap[v].min;
 
         if (intersects(from, to, n.from, n.to)) {
             propagate(v);
@@ -114,9 +88,7 @@ class SegmentTree {
             return n.pendingVal;
         }
 
-        if (contains(from, to, n.from, n.to)) {
-            return heap[v].minId;
-        }
+        if (contains(from, to, n.from, n.to)) return heap[v].minId; 
 
         if (intersects(from, to, n.from, n.to)) {
             propagate(v);
@@ -131,9 +103,7 @@ class SegmentTree {
         return Integer.MAX_VALUE;
     }
 
-    public void update(int from, int to, int value) {
-        update(1, from, to, value);
-    }
+    public void update(int from, int to, int value) { update(1, from, to, value); }
 
     private void update(int v, int from, int to, int value) {
         //The Node of the heap tree represents a range of the array with bounds: [n.from, n.to]
@@ -198,9 +168,7 @@ class SegmentTree {
         int from;
         int to;
 
-        int size() {
-            return to - from + 1;
-        }
+        int size() { return to - from + 1; }
 
     }
 

@@ -1,14 +1,5 @@
-#include <iostream>
-#include <algorithm>
-#include <vector>
-
-using namespace std;
-
-typedef vector<int> vi;
-typedef vector<vi > vvi;
-
+// <iostream><algorithm><vector> vi vvi
 vvi adj; vi owner, vis; int n,b;
-
 int altpath(int u){
 	if(vis[u]) return 0; vis[u]=1;
 	for(int i=0 ; i<adj[u].size() ; i++){
@@ -19,7 +10,6 @@ int altpath(int u){
 	}
 	return 0;
 }
-
 int main(){
 	int tmp,tc,t=1; cin >> tc;
 	while(tc--){
@@ -36,5 +26,4 @@ int main(){
 		}
 		printf("Case %d: a maximum of %d matched\n", t++, ans);
 	}
-	return 0;
 }

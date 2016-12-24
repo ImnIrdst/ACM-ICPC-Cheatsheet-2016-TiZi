@@ -1,29 +1,14 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-typedef vector<int> VI;
-typedef pair<int, int> PII;
-
+// <iostream> <vector> <algorithm> VI; PII;
 // return a % b (positive value)
-int mod(int a, int b) {
-  return ((a%b) + b) % b;
-}
-
+int mod(int a, int b) { return ((a%b) + b) % b; }
 // computes gcd(a,b)
 int gcd(int a, int b) {
   int tmp;
   while (b) { a %= b; tmp = a; a = b; b = tmp; }
   return a;
 }
-
 // computes lcm(a,b)
-int lcm(int a, int b) {
-  return a / gcd(a, b)*b;
-}
-
+int lcm(int a, int b) { return a / gcd(a, b)*b; }
 // returns d = gcd(a,b); finds x,y such that d = ax + by
 int extended_euclid(int a, int b, int &x, int &y) {
   int xx = y = 0;
@@ -36,7 +21,6 @@ int extended_euclid(int a, int b, int &x, int &y) {
   }
   return a;
 }
-
 // finds all solutions to ax = b (mod n)
 VI modular_linear_equation_solver(int a, int b, int n) {
   int x, y;
@@ -49,7 +33,6 @@ VI modular_linear_equation_solver(int a, int b, int n) {
   }
   return solutions;
 }
-
 // computes b such that ab = 1 (mod n), returns -1 on failure
 int mod_inverse(int a, int n) {
   int x, y;
@@ -57,8 +40,6 @@ int mod_inverse(int a, int n) {
   if (d > 1) return -1;
   return mod(x, n);
 }
-
-
 // Chinese remainder theorem (special case): find z such that
 // z % x = a, z % y = b.  Here, z is unique modulo M = lcm(x,y).
 // Return (z,M).  On failure, M = -1.
@@ -68,7 +49,6 @@ PII chinese_remainder_theorem(int x, int a, int y, int b) {
   if (a%d != b%d) return make_pair(0, -1);
   return make_pair(mod(s*b*x + t*a*y, x*y) / d, x*y / d);
 }
-
 // Chinese remainder theorem: find z such that
 // z % x[i] = a[i] for all i.  Note that the solution is
 // unique modulo M = lcm_i (x[i]).  Return (z,M).  On 
@@ -82,7 +62,6 @@ PII chinese_remainder_theorem(const VI &x, const VI &a) {
   }
   return ret;
 }
-
 // computes x and y such that ax + by = c; on failure, x = y =-1
 void linear_diophantine(int a, int b, int c, int &x, int &y) {
   int d = gcd(a, b);
@@ -109,4 +88,4 @@ long conquer_fibonacci_lgN(long n) {
     k = k * k + t;
     n = (long)n / 2;
   }
-  return j;}
+  return j; }

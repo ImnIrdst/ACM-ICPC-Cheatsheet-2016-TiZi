@@ -1,9 +1,4 @@
-import java.math.BigInteger;
-import java.util.Scanner;
-//import java.util.
-
 public class Main {
-    // https://en.wikipedia.org/wiki/Integer_square_root
     public static BigInteger sqrt(BigInteger n) {
         BigInteger cur = null; // X(k)
         BigInteger nxt = n; // X(k+1)

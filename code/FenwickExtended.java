@@ -1,11 +1,9 @@
 public class FenwickTreeExtended {
-
   // T[i] += value
   public static void add(int[] t, int i, int value) {
     for (; i < t.length; i |= i + 1)
       t[i] += value;
   }
-
   // sum[0..i]
   public static int sum(int[] t, int i) {
     int res = 0;
@@ -24,7 +22,6 @@ public class FenwickTreeExtended {
     }
     return res;
   }
-
   // sum[a..b]
   public static int sum(int[] t, int a, int b) {
     return sum(t, b) - sum(t, a - 1);
@@ -43,21 +40,15 @@ public class FenwickTreeExtended {
   public static void set(int[] t, int i, int value) {
     add(t, i, -get(t, i) + value);
   }
-
-  ///////////////////////////////////////////////////////
   // interval add
   public static void add(int[] t, int a, int b, int value) {
     add(t, a, value);
     add(t, b + 1, -value);
   }
-
   // point query
   public static int get1(int[] t, int i) {
     return sum(t, i);
   }
-  ///////////////////////////////////////////////////////
-
-  ///////////////////////////////////////////////////////
   // interval add
   public static void add(int[] t1, int[] t2, int a, int b, int value) {
     add(t1, a, value);
@@ -65,13 +56,10 @@ public class FenwickTreeExtended {
     add(t2, a, -value * (a - 1));
     add(t2, b, value * b);
   }
-
   // interval query
   public static int sum(int[] t1, int[] t2, int i) {
     return sum(t1, i) * i + sum(t2, i);
   }
-  ///////////////////////////////////////////////////////
-
   // Returns min(p|sum[0,p]>=sum)
   public static int lower_bound(int[] t, int sum) {
     --sum;

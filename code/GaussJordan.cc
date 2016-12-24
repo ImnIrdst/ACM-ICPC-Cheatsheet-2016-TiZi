@@ -1,28 +1,14 @@
 // Gauss-Jordan elimination with full pivoting.
-// Uses:
 //   (1) solving systems of linear equations (AX=B)
 //   (2) inverting matrices (AX=I)
 //   (3) computing determinants of square matrices
 // Running time: O(n^3)
-// INPUT:    a[][] = an nxn matrix
-//           b[][] = an nxm matrix
+// INPUT:    a[][] = an nxn matrix, b[][] = an nxm matrix
 // OUTPUT:   X      = an nxm matrix (stored in b[][])
 //           A^{-1} = an nxn matrix (stored in a[][])
 //           returns determinant of a[][]
 
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-using namespace std;
-
-const double EPS = 1e-10;
-
-typedef vector<int> VI;
-typedef double T;
-typedef vector<T> VT;
-typedef vector<VT> VVT;
-
+// <iostream> <vector> <cmath> EPS = 1e-10; VI; T; VT; VVT;
 T GaussJordan(VVT &a, VVT &b) {
   const int n = a.size();
   const int m = b[0].size();
@@ -58,13 +44,11 @@ T GaussJordan(VVT &a, VVT &b) {
   for (int p = n-1; p >= 0; p--) if (irow[p] != icol[p]) {
     for (int k = 0; k < n; k++) swap(a[k][irow[p]], a[k][icol[p]]);
   }
-
   return det;
 }
 
 int main() {
-  const int n = 4;
-  const int m = 2;
+  const int n = 4, m = 2;
   double A[n][n] = { {1,2,3,4},{1,0,1,0},{5,3,2,4},{6,1,4,6} };
   double B[n][m] = { {1,2},{4,3},{5,6},{8,7} };
   VVT a(n), b(n);
@@ -72,31 +56,18 @@ int main() {
     a[i] = VT(A[i], A[i] + n);
     b[i] = VT(B[i], B[i] + m);
   }
-  
   double det = GaussJordan(a, b);
-  
-  // expected: 60  
-  cout << "Determinant: " << det << endl;
-
-  // expected: -0.233333 0.166667 0.133333 0.0666667
-  //           0.166667 0.166667 0.333333 -0.333333
-  //           0.233333 0.833333 -0.133333 -0.0666667
-  //           0.05 -0.75 -0.1 0.2
-  cout << "Inverse: " << endl;
-  for (int i = 0; i < n; i++) {
-    for (int j = 0; j < n; j++)
-      cout << a[i][j] << ' ';
+  cout << "Determinant: " << det << endl; // expected: 60  
+  cout << "Inverse: " << endl;  // expected: -0.233333 0.166667 0.133333 0.0666667
+  for (int i = 0; i < n; i++) { //           0.166667 0.166667 0.333333 -0.333333
+    for (int j = 0; j < n; j++) //           0.233333 0.833333 -0.133333 -0.0666667
+      cout << a[i][j] << ' ';   //           0.05 -0.75 -0.1 0.2
     cout << endl;
   }
-  
-  // expected: 1.63333 1.3
-  //           -0.166667 0.5
-  //           2.36667 1.7
-  //           -1.85 -1.35
-  cout << "Solution: " << endl;
-  for (int i = 0; i < n; i++) {
-    for (int j = 0; j < m; j++)
-      cout << b[i][j] << ' ';
+  cout << "Solution: " << endl; // expected: 1.63333 1.3
+  for (int i = 0; i < n; i++) { //           -0.166667 0.5
+    for (int j = 0; j < m; j++) //           -1.85 -1.35
+      cout << b[i][j] << ' ';   //           2.36667 1.7
     cout << endl;
   }
 }

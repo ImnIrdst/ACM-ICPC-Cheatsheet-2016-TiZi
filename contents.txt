@@ -6,7 +6,7 @@
 [Data Structures]
 Union-Find-Disjoint-Set-Kruskal.cpp	Union Find Disjoint Set - Kruskal
 SegmentTreeFull.java	Segment Tree, RSQ, RMQ
-SegmentTree2D.java		Segment Tree, 2D-RMQ
+SegmentTree2D.java	Segment Tree, 2D-RMQ
 StaticRMQ-LookupTable.cpp	Static RMQ, Lookup Table
 FenwickTree-Inversions.cpp	Fenwick Tree, Inversions
 Fenwick2D.java	Fenwick Tree, 2D
@@ -15,11 +15,11 @@ KDTree.java	KDTree
 
 [Dynamic Programming]
 DP-Classics.cpp	Classic DP problems
+EditDistance.cpp	Edit Distance
 
 [Graph Algorithms]
 ArticulationPoints-Bridges.cpp	Articulation Points, Bridges
 StronglyConnectedComponnent-Kosaraju.cpp	Strongly Connected Component, Kosaraju
-StronglyConnectedComponnent-Tarjan.cpp	Strongly Connected Component, Tarjan
 2SAT.cpp	2-Satisfiability (2SAT)
 Dijkstra.cpp	Shortest Path, Dijkstra
 LCATreeDist.cpp	LCA Tree Distance
@@ -49,7 +49,7 @@ SuffixArray.cc	Suffix Array 1
 SuffixArray2.cc	Suffix Array 2
 PrefixFunction.cpp	Prefix Function
 Infix2Postfix.java	Infix to Postfix
-KMP.java		Knuth-Morris-Pratt (KMP)
+KMP.java	Knuth-Morris-Pratt (KMP)
 SimpleParser.cpp	Simple Parser
 LongestPalindrom.cpp	Longest Palindrome
 

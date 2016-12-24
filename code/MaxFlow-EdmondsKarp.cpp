@@ -1,8 +1,5 @@
-//UVa 820 - Internet Bandwidth
 #define INF (int)1e9
 #define MAX 100+10
-
-using namespace std;
 
 int res[MAX][MAX],mf,f,s,t,n,m,par[MAX]; vector<int> dist,adj[MAX];
 
@@ -45,4 +42,4 @@ int main(){
         printf("Network %d\n", tc++);
         printf("The bandwidth is %d.\n\n", mf);
     }
-    return 0;}
+    return 0; }

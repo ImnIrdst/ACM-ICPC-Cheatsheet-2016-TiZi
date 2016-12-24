@@ -1,13 +1,6 @@
-#include <iostream>
-#include <cstdio>
-#include <vector>
-#include <bitset>
-
-using namespace std;
-
+// <iostream><cstdio><vector><bitset>
 typedef long long int64;
 const int64 MAX = 1e6 + 100;
-
 bitset<MAX> isp;// isprime
 vector<int64> primes, pfs, pws; //pfs = prime factors, pws = prime powers
 
@@ -19,7 +12,6 @@ void genprime(){
         }
     }
 }
-
 bool isprime(int n){
     if(n<MAX) return isp[n];
     for(int i=0 ; i<primes.size() && primes[i]*primes[i]<=n ; i++){
@@ -27,8 +19,7 @@ bool isprime(int n){
     }
     return 1;
 }
-//generation prime factors of a number
-int main(){
+int main(){ //generation prime factors of a number
     int64 n; genprime();
     while(cin >> n){                     // cop = euler Phi funcion
         int64 tmp=n, cnt=0, cop=n, div=1;// cop = coprimes =  all m (m<n && gcd(m,n)==1)

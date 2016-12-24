@@ -1,22 +1,12 @@
 // Compute the 2D convex hull of a set of points using the monotone chain
 // algorithm.  Eliminate redundant points from the hull if REMOVE_REDUNDANT is 
-// #defined.
 // Running time: O(n log n)
 //   INPUT:   a vector of input points, unordered.
 //   OUTPUT:  a vector of points in the convex hull, counterclockwise, starting
 //            with bottommost/leftmost point
 
-#include <cstdio>
-#include <cassert>
-#include <vector>
-#include <algorithm>
-#include <cmath>
-#include <map>
-
-using namespace std;
-
+// <cstdio><cassert><vector><algorithm><cmath><map>
 #define REMOVE_REDUNDANT
-
 typedef double T;
 const T EPS = 1e-7;
 struct PT { 
@@ -66,7 +56,6 @@ void ConvexHull(vector<PT> &pts) {
 #endif
 }
 
-// The following code solves SPOJ problem #26: Build the Fence (BSHEEP)
 int main() {
   int t;
   scanf("%d", &t);
@@ -81,7 +70,7 @@ int main() {
     ConvexHull(h);
     
     double len = 0;
-    for (int i = 0; i < h.size(); i++) {
+    for (int i = 0; i < h.size(); i++) {1
       double dx = h[i].x - h[(i+1)%h.size()].x;
       double dy = h[i].y - h[(i+1)%h.size()].y;
       len += sqrt(dx*dx+dy*dy);
