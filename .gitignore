@@ -28,3 +28,6 @@ x64
 
 contents.tex
 code/Input.txt
+
+code/.fuse_hidden000000*wq
+
